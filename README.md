@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 ## Conclusion
 
-Proyek ini berhasil mengidentifikasi potensi attrition dengan pendekatan machine learning, khususnya XGBoost dan SMOTE dengan akurasi mencapai 92% serta melakukan treshold untuk meningkatkan akurasi prediksi. Ditemukan bahwa faktor lembur, jabatan, keterlibatan kerja, dan insentif memiliki peran penting dalam prediksi karyawan resign. Visualisasi dan dashboard yang dibangun dapat membantu manajemen dalam pengambilan keputusan berbasis data.
+Proyek ini berhasil mengidentifikasi potensi attrition dengan pendekatan machine learning, khususnya XGBoost dan SMOTE dengan akurasi mencapai 92% serta melakukan threshold untuk meningkatkan akurasi prediksi. Ditemukan bahwa faktor lembur, jabatan, keterlibatan kerja, dan insentif memiliki peran penting dalam prediksi karyawan resign. Visualisasi dan dashboard yang dibangun dapat membantu manajemen dalam pengambilan keputusan berbasis data.
 
 ### Rekomendasi Action Items (Optional)
 
