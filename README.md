@@ -39,7 +39,7 @@ pip install -r requirements.txt
 5. Pengaruh Lembur: 58.1% karyawan yang resign merupakan mereka yang melakukan lembur.
 6. Strategi Retensi: Disusun berdasarkan insight yang ditemukan dari fitur-fitur penting.
 
-(Dashboard dapat diakses melalui Metabase lokal: predicted_resign.db (Username : Tsamarah Abdullah, Pass : Tsamarah192) atau melihat dalam bentuk image).
+_Dashboard dapat diakses melalui Metabase lokal: predicted_resign.db (Username : Tsamarah Abdullah, Pass : Tsamarah192) atau melihat dalam bentuk image_.
 
 ## Conclusion
 
