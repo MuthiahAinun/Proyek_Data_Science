@@ -10,7 +10,6 @@ Permasalahan yang ingin diselesaikan antara lain:
 - Mendeteksi secara dini karyawan yang berisiko tinggi untuk resign.
 - Mengidentifikasi faktor-faktor utama penyebab pengunduran diri.
 - Menyusun strategi retensi berdasarkan data.
-- Mengurangi beban HR dalam merekrut dan melatih kembali karyawan.
 
 ### Cakupan Proyek
 
