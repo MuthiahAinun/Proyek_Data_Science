@@ -20,13 +20,22 @@ Permasalahan yang ingin diselesaikan antara lain:
 
 ### Persiapan
 
-Sumber data: Dataset karyawan berisi informasi demografis, pekerjaan, status attrition, dll. yang tersimpan dalam file **employee_data.csv**.
+Sumber data: Dataset karyawan berisi informasi demografis, pekerjaan, status attrition, dll. yang tersimpan dalam file ![**employee_data.csv**](Dataset/employee_data.csv) atau unduh langsung dari [dicoding_dataset](https://github.com/dicodingacademy/dicoding_dataset/blob/main/employee/employee_data.csv).
 
 Setup environment:
 
+## ⚙️Instalasi
+Pastikan Anda telah menginstal semua dependensi yang dibutuhkan:
 ```
 pip install -r requirements.txt
 ```
+---
+## 🎞️Menjalankan Proyek
+1. Jalankan notebook Jupyter atau Google Colab:
+   ```
+   jupyter notebook Proyek_System_Recommendation_Tsamarah_Muthi'ah_A.ipynb
+   ```
+2. Ikuti langkah-langkah di dalam notebook untuk melakukan pelatihan dan evaluasi model.
 
 ## Business Dashboard
 
