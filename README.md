@@ -133,13 +133,18 @@ docker run -d -p 3000:3000 -v "C:\Users\ACER NITRO V15\metabase-data:/app/metaba
 5. ```--name metabase:``` memberi nama container sebagai metabase.
 6. ```metabase/metabase:``` image resmi Metabase dari Docker Hub.
 
-5️⃣ Akses metabase melalui browser **```http://localhost:3000/```** lalu buat akun admin, contoh (Username : Tsamarah Abdullah, Pass : Tsamarah192). Kemudian hubungkan file database yang telah tersimpan dalam folder lokal (C:\Users\ACER_NITRO_V15\metabase-data\predicted_resign.db) ke container `/app/metabase-share/predicted_resign.db` , Atau Anda dapat langsung mengakses **Dashboard Attrition** ![gambar Dashboard Attrition](Dashboard/<muthiah_abdullah>-dashboard.jpg) dan **Menonton video penjelasan** mengenai [Dashboard Attrition](https://drive.google.com/file/d/1VFefB3yNIc9WjwPRx2zU5EbrNWxRFPAs/view?usp=sharing).
+5️⃣ Akses Metabase melalui browser **```http://localhost:3000/```** lalu buat akun admin, contoh _(Username : Tsamarah Abdullah, Pass : Tsamarah192)_. Kemudian hubungkan file database yang telah tersimpan dalam folder lokal (C:\Users\ACER_NITRO_V15\metabase-data\predicted_resign.db) ke container `/app/metabase-share/predicted_resign.db` , atau Anda dapat langsung mengakses **Dashboard Attrition :** 
+
+![gambar Dashboard Attrition](Dashboard/<muthiah_abdullah>-dashboard.jpg) 
+
+dan **Menonton video penjelasan** mengenai [Dashboard Attrition](https://drive.google.com/file/d/1VFefB3yNIc9WjwPRx2zU5EbrNWxRFPAs/view?usp=sharing).
 
 
 ## 📌Conclusion
 
 ---
 Berdasarkan hasil evaluasi feature importance dari model XGBoost yang telah dioptimalkan, ditemukan bahwa beberapa fitur memiliki kontribusi signifikan terhadap keputusan model dalam memprediksi kemungkinan karyawan melakukan attrition (resign).
+
 ---
 
 **✅ Fitur Paling Berpengaruh:**
@@ -161,11 +166,11 @@ Berdasarkan hasil evaluasi feature importance dari model XGBoost yang telah diop
 2️⃣ JobRole_Research Scientist dan EducationField_Other
 > Jenis pekerjaan dan latar belakang pendidikan tertentu juga memberikan pengaruh, menunjukkan bahwa profesi berbasis riset atau pendidikan non-umum dapat memiliki dinamika karier yang berbeda dibandingkan peran lainnya.
 
-**👥 Karakteristik Umum Karyawan yang Berpotensi Resign:**
+### **👥 Karakteristik Umum Karyawan yang Berpotensi Resign:**
 
 Berdasarkan model prediktif, karyawan yang berisiko tinggi untuk resign cenderung memiliki karakteristik berikut:
 
-1️⃣ Status lembur. Dari total 236 karyawan yang diprediksi akan resign, sebanyak **58,1%** di antaranya menunjukkan keterkaitan dengan status **lembur** sebagai faktor utama yang memengaruhi keputusan resign.
+1️⃣ Status lembur. Dari total 236 karyawan yang diprediksi akan resign, sebanyak **58,1%** di antaranya menunjukkan keterkaitan dengan **status lembur** sebagai faktor utama yang memengaruhi keputusan resign.
 
 2️⃣ Memiliki level jabatan dan insentif saham yang rendah
 
@@ -179,32 +184,33 @@ Berdasarkan model prediktif, karyawan yang berisiko tinggi untuk resign cenderun
 
 7️⃣ Memiliki pekerjaan dengan tekanan target tinggi (misalnya Sales Executive)
 
-**📌 Kesimpulan dan Rekomendasi Strategis**
 
 > Proyek ini berhasil mengidentifikasi potensi attrition menggunakan model machine learning (XGBoost dengan SMOTE), mencapai akurasi hingga **92%**, serta mengoptimalkan **threshold** prediksi untuk hasil yang lebih akurat.
 
 **Model menunjukkan bahwa keputusan resign sangat dipengaruhi oleh kombinasi faktor pekerjaan (lembur, jabatan, keterlibatan) dan faktor personal (status perkawinan, mobilitas kerja, latar belakang pendidikan).**
 
-### Rekomendasi Action Items (Optional)
+---
+
+### 💡Rekomendasi Action Items
 
 **✅ Berikut beberapa langkah strategis yang dapat dilakukan HR:**
 
 1️⃣ Evaluasi Kebijakan Lembur dan pemberian insentif
-
-Kurangi lembur berlebihan dan atur keseimbangan kerja-hidup yang sehat.
+_Kurangi lembur berlebihan dan atur keseimbangan kerja-hidup yang sehat._
 
 2️⃣ Mengembangkan program pengembangan karier dan pelatihan berbasis jabatan dan peran kerja
-
-Optimalkan stock option dan jenjang karier agar karyawan lebih termotivasi.
+_Optimalkan stock option dan jenjang karier agar karyawan lebih termotivasi._
 
 3️⃣ Tingkatkan Keterlibatan Karyawan
-
-Lakukan survei rutin dan kegiatan peningkatan engagement.
+_Lakukan survei rutin dan kegiatan peningkatan engagement._
 
 4️⃣ Perhatikan Departemen Rawan Resign
-
-Fokus pada R&D, Sales, dan HR untuk program retensi karyawan.
+_Fokus pada R&D, Sales, dan HR untuk program retensi karyawan._
 
 5️⃣ Terapkan Sistem Peringatan Dini
+_Gunakan dashboard sebagai alat pemantauan rutin untuk mendeteksi risiko resign._
 
-Gunakan dashboard sebagai alat pemantauan rutin untuk mendeteksi risiko resign.
+---
+
+📧 Hubungi saya melalui [GitHub](https://github.com/MuthiahAinun) jika ada pertanyaan 😊.
+
