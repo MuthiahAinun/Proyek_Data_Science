@@ -191,23 +191,23 @@ Berdasarkan model prediktif, karyawan yang berisiko tinggi untuk resign cenderun
 
 ---
 
-### 💡Rekomendasi Action Items
+## 💡Rekomendasi Action Items
 
 **✅ Berikut beberapa langkah strategis yang dapat dilakukan HR:**
 
-1️⃣ Evaluasi Kebijakan Lembur dan pemberian insentif
+**1️⃣ Evaluasi Kebijakan Lembur dan pemberian insentif :**
 _Kurangi lembur berlebihan dan atur keseimbangan kerja-hidup yang sehat._
 
-2️⃣ Mengembangkan program pengembangan karier dan pelatihan berbasis jabatan dan peran kerja
+**2️⃣ Mengembangkan program pengembangan karier dan pelatihan berbasis jabatan dan peran kerja :**
 _Optimalkan stock option dan jenjang karier agar karyawan lebih termotivasi._
 
-3️⃣ Tingkatkan Keterlibatan Karyawan
+**3️⃣ Tingkatkan Keterlibatan Karyawan :**
 _Lakukan survei rutin dan kegiatan peningkatan engagement._
 
-4️⃣ Perhatikan Departemen Rawan Resign
+**4️⃣ Perhatikan Departemen Rawan Resign :**
 _Fokus pada R&D, Sales, dan HR untuk program retensi karyawan._
 
-5️⃣ Terapkan Sistem Peringatan Dini
+**5️⃣ Terapkan Sistem Peringatan Dini :**
 _Gunakan dashboard sebagai alat pemantauan rutin untuk mendeteksi risiko resign._
 
 ---
