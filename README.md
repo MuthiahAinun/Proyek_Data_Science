@@ -102,19 +102,22 @@ Sebelum digunakan di **Metabase**, file hasil prediksi **[predictions.csv](Predi
 
 2️⃣ Jalankan Metabase via Docker
 - Install Docker Dekstop di situs resmi [Docker](https://docs.docker.com/desktop/setup/install/windows-install/).
-- Jalankan Docker Terminal lalu buat folder **metabase-data**
-  `sh
-  mkdir ~/metabase-data`
+- Jalankan Docker Terminal lalu buat folder **metabase-data**:
+  
+  ```sh
+  mkdir ~/metabase-data```
 
 3️⃣ Tambah database SQLite sebagai data source di Metabase
 
 **Cukup upload file [Database Predicted Resign](Dashboard/predicted_resign.db) pada Folder metabase-data, lalu Metabase bisa langsung membaca isi tabel dan membuat dashboard-nya.**
-'sh
-mv predicted_resign.db ~/metabase-data/'
+
+```
+mv predicted_resign.db ~/metabase-data/```
 
 4️⃣ Menjalankan layanan Metabase menggunakan Docker Container dan menghubungkan folder lokal sebagai volume.
-'sh
-docker run -d -p 3000:3000 -v "C:\Users\ACER NITRO V15\metabase-data:/app/metabase-share" --name metabase metabase/metabase '
+
+```
+docker run -d -p 3000:3000 -v "C:\Users\ACER NITRO V15\metabase-data:/app/metabase-share" --name metabase metabase/metabase```
 
 **🔍 Penjelasan Kode:**
 
@@ -122,37 +125,83 @@ docker run -d -p 3000:3000 -v "C:\Users\ACER NITRO V15\metabase-data:/app/metaba
 2. ```-d:``` menjalankan container di background (detached mode).
 3. ```-p 3000:3000:``` memetakan **port 3000** di komputer host ke port 3000 di dalam container (Metabase secara default berjalan di port 3000).
 4. ```-v "C:\Users\ACER_NITRO_V15\metabase-data:/app/metabase-share":```
+   
    Menghubungkan folder lokal **(C:\Users\...)** ke folder di dalam container **(/app/metabase-share)** agar dapat berbagi file, seperti database SQLite .db.
 5. ```--name metabase:``` memberi nama container sebagai metabase.
 6. ```metabase/metabase:``` image resmi Metabase dari Docker Hub.
 
-5️⃣ Akses database melalui browser **```http://localhost:3000/```** lalu buat akun admin, contoh (Username : Tsamarah Abdullah, Pass : Tsamarah192), Atau Anda dapat langsung mengakses ![gambar Dashboard Attrition](Dashboard/<muthiah_abdullah>-dashboard.jpg) dan Menonton video penjelasan mengenai [Dashboard Attrition](LINK VIDEO.txt).
+5️⃣ Akses database melalui browser **```http://localhost:3000/```** lalu buat akun admin, contoh (Username : Tsamarah Abdullah, Pass : Tsamarah192), Atau Anda dapat langsung mengakses Dashboard Attrition ![gambar Dashboard Attrition](Dashboard/<muthiah_abdullah>-dashboard.jpg) dan **Menonton video penjelasan** mengenai [Dashboard Attrition](https://drive.google.com/file/d/1VFefB3yNIc9WjwPRx2zU5EbrNWxRFPAs/view?usp=sharing).
 
 
-## Conclusion
+## 📌Conclusion
 
-Proyek ini berhasil mengidentifikasi potensi attrition dengan pendekatan machine learning, khususnya XGBoost dan SMOTE dengan akurasi mencapai 92% serta melakukan threshold untuk meningkatkan akurasi prediksi. Ditemukan bahwa faktor lembur, jabatan, keterlibatan kerja, dan insentif memiliki peran penting dalam prediksi karyawan resign. Visualisasi dan dashboard yang dibangun dapat membantu manajemen dalam pengambilan keputusan berbasis data.
+---
+Berdasarkan hasil evaluasi feature importance dari model XGBoost yang telah dioptimalkan, ditemukan bahwa beberapa fitur memiliki kontribusi signifikan terhadap keputusan model dalam memprediksi kemungkinan karyawan melakukan attrition (resign).
+---
+
+**✅ Fitur Paling Berpengaruh:**
+
+1️⃣ OverTime_No
+> Merupakan fitur paling dominan dengan skor importance tertinggi. Hal ini menunjukkan bahwa status lembur sangat memengaruhi prediksi. Karyawan yang tidak melakukan lembur menunjukkan pola yang berbeda, yang berpotensi berkaitan dengan keterlibatan atau beban kerja yang lebih rendah.
+
+2️⃣ JobLevel dan StockOptionLevel
+> Mewakili posisi jabatan dan insentif kepemilikan saham. Karyawan dengan jabatan rendah atau tanpa insentif saham cenderung memiliki risiko lebih tinggi untuk resign, karena keterikatan dan kompensasi yang lebih rendah.
+
+3️⃣ JobInvolvement dan JobRole_Sales Executive
+> Tingkat keterlibatan kerja serta jenis pekerjaan sebagai Sales Executive berperan penting. Karyawan dengan keterlibatan rendah atau peran yang memiliki target tinggi cenderung mengalami tekanan lebih besar, yang dapat memengaruhi loyalitas mereka terhadap perusahaan.
+
+**⚖️ Fitur Lain yang Signifikan:**
+
+1️⃣ Department_Sales, MaritalStatus_Divorced, dan BusinessTravel_Travel_Frequently
+> Fitur-fitur ini mencerminkan aspek lingkungan kerja, kondisi pribadi, dan mobilitas kerja. Karyawan di departemen sales, berstatus cerai, atau yang sering melakukan perjalanan dinas memiliki kecenderungan lebih tinggi untuk resign.
+
+2️⃣ JobRole_Research Scientist dan EducationField_Other
+> Jenis pekerjaan dan latar belakang pendidikan tertentu juga memberikan pengaruh, menunjukkan bahwa profesi berbasis riset atau pendidikan non-umum dapat memiliki dinamika karier yang berbeda dibandingkan peran lainnya.
+
+**👥 Karakteristik Umum Karyawan yang Berpotensi Resign:**
+
+Berdasarkan model prediktif, karyawan yang berisiko tinggi untuk resign cenderung memiliki karakteristik berikut:
+
+1️⃣ Status lembur. Dari total 236 karyawan yang diprediksi akan resign, sebanyak **58,1%** di antaranya menunjukkan keterkaitan dengan status **lembur** sebagai faktor utama yang memengaruhi keputusan resign.
+
+2️⃣ Memiliki level jabatan dan insentif saham yang rendah
+
+3️⃣ Keterlibatan kerja yang rendah
+
+4️⃣ Berasal dari departemen sales, departemen Research & Development, dan departemen Human Resources
+
+5️⃣ Sering melakukan perjalanan bisnis
+
+6️⃣ Status Pernikahan, Misal : Berstatus cerai
+
+7️⃣ Memiliki pekerjaan dengan tekanan target tinggi (misalnya Sales Executive)
+
+**📌 Kesimpulan dan Rekomendasi Strategis**
+
+> Proyek ini berhasil mengidentifikasi potensi attrition menggunakan model machine learning (XGBoost dengan SMOTE), mencapai akurasi hingga **92%**, serta mengoptimalkan **threshold** prediksi untuk hasil yang lebih akurat.
+
+**Model menunjukkan bahwa keputusan resign sangat dipengaruhi oleh kombinasi faktor pekerjaan (lembur, jabatan, keterlibatan) dan faktor personal (status perkawinan, mobilitas kerja, latar belakang pendidikan).**
 
 ### Rekomendasi Action Items (Optional)
 
-**Berikut beberapa langkah strategis yang dapat dilakukan HR:**
+**✅ Berikut beberapa langkah strategis yang dapat dilakukan HR:**
 
-1. Evaluasi Kebijakan Lembur
+1️⃣ Evaluasi Kebijakan Lembur dan pemberian insentif
 
 Kurangi lembur berlebihan dan atur keseimbangan kerja-hidup yang sehat.
 
-2. Tinjau Sistem Insentif
+2️⃣ Mengembangkan program pengembangan karier dan pelatihan berbasis jabatan dan peran kerja
 
 Optimalkan stock option dan jenjang karier agar karyawan lebih termotivasi.
 
-3. Tingkatkan Keterlibatan Karyawan
+3️⃣ Tingkatkan Keterlibatan Karyawan
 
 Lakukan survei rutin dan kegiatan peningkatan engagement.
 
-4. Perhatikan Departemen Rawan Resign
+4️⃣ Perhatikan Departemen Rawan Resign
 
 Fokus pada R&D, Sales, dan HR untuk program retensi karyawan.
 
-5. Terapkan Sistem Peringatan Dini
+5️⃣ Terapkan Sistem Peringatan Dini
 
 Gunakan dashboard sebagai alat pemantauan rutin untuk mendeteksi risiko resign.
