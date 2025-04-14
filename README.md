@@ -33,10 +33,11 @@ pip install -r requirements.txt
 ## 🎞️Menjalankan Proyek
 1️⃣ Jalankan notebook Jupyter atau Google Colab:
    ```
-   jupyter notebook Proyek_System_Recommendation_Tsamarah_Muthi'ah_A.ipynb
+   jupyter notebook Proyek_Resign_Prediction.ipynb
    ```
 2️⃣ Ikuti langkah-langkah di dalam notebook untuk melakukan pelatihan dan evaluasi model XGBoost.
-3️⃣ Simpan model XGBoost yang telah dilatih, atau jika ingin melewati proses pelatihan model pada tahap no.2, Anda dapat langsung mengunduh file-file berikut: [xgboost_model.pkl](model/xgboost_model.pkl), [pipeline.pkl](others/pipeline.pkl), [optimal_threshold.json](others/optimal_threshold.json), dan [top_10_feature_importance.csv](others/top_10_feature_importance.csv).
+
+3️⃣ Simpan model XGBoost yang telah dilatih, atau **jika ingin melewati proses pelatihan model pada tahap no.2** , Anda dapat langsung mengunduh file-file berikut: [xgboost_model.pkl](model/xgboost_model.pkl), [pipeline.pkl](others/pipeline.pkl), [optimal_threshold.json](others/optimal_threshold.json), dan [top_10_feature_importance.csv](others/top_10_feature_importance.csv).
 
 - ```xgboost_model.pkl:``` berisi model XGBoost yang telah dilatih untuk memprediksi karyawan yang berpotensi resign.
 - ```pipeline.pkl:``` berisi preprocessing pipeline (seperti encoding dan scaling) yang diperlukan sebelum model melakukan prediksi.
@@ -45,7 +46,7 @@ pip install -r requirements.txt
 
 File-file ini diperlukan untuk menjalankan [prediction.py](Predict/predict.py) tanpa perlu melatih ulang model.
 
-4️⃣ Selanjutnya jalankan file [prediction.py](Predict/predict.py) Berikut penjelasan mengenai tahapan dalam file tersebut:
+4️⃣ Selanjutnya jalankan file [prediction.py](Predict/predict.py) atau **jika ingin melewati tahap ini**, Anda dapat langsung mengunduh file [hasil prediksi](Predict/predictions.csv). Berikut penjelasan mengenai tahapan dalam file tersebut:
 
 ### **📄 Penjelasan Proses dalam prediction.py:**
 ```
@@ -58,11 +59,9 @@ File-file ini diperlukan untuk menjalankan [prediction.py](Predict/predict.py) t
 - optimal_threshold.json: nilai threshold optimal (0.28) untuk mengubah probabilitas menjadi label prediksi (0 = bertahan, 1 = resign).
 
 3. Load Data Karyawan
-
 Membaca file employee_data.csv yang berisi data karyawan yang ingin diprediksi. Jika kolom Attrition ada, akan dihapus agar tidak mengganggu proses prediksi.
 
 4. Preprocessing Data
-
 Data karyawan diproses menggunakan pipeline yang sama dengan saat pelatihan model.
 
 5. Prediksi
@@ -75,7 +74,6 @@ Data karyawan diproses menggunakan pipeline yang sama dengan saat pelatihan mode
 - Probability: probabilitas prediksi dari model.
 
 7. Simpan Hasil
-
 Hasil akhir disimpan ke file predictions.csv.
 ```
 
@@ -89,6 +87,24 @@ Hasil akhir disimpan ke file predictions.csv.
 4. Top 10 Faktor Penyebab: Fitur paling berpengaruh adalah status lembur (OverTime), jabatan, keterlibatan kerja, dan kepemilikan saham.
 5. Pengaruh Lembur: 58.1% karyawan yang resign merupakan mereka yang melakukan lembur.
 6. Strategi Retensi: Disusun berdasarkan insight yang ditemukan dari fitur-fitur penting.
+
+## ✨Menjalankan Dashboard Metabase via Docker 
+
+1️⃣ Konversi File ke Database SQLite
+
+Sebelum digunakan di **Metabase**, file hasil prediksi **[predictions.csv](Predict/predictions.csv)** dan file penting lainnya seperti **[top_10_feature_importance.csv](others/top_10_feature_importance.csv)** dikonversi menjadi database **SQLite (.db)**. Untuk melakukan konversi kedua file menjadi database SQLite, Anda dapat menjalankan kode nya pada file [convert.py](others/convert.py) atau Anda dapat langsung mengunduh file hasil konversi SQLite pada [Database Predicted Resign](Dashboard/predicted_resign.db).
+
+**🔍 Mengapa Menggunakan SQLite?**
+- **Kompatibilitas tinggi:** Metabase mendukung SQLite sebagai salah satu data source.
+- **Mudah dan ringan:** SQLite tidak memerlukan setup server, cukup file .db saja.
+- **Ideal untuk prototipe atau deployment skala kecil** seperti dashboard analitik lokal.
+- **Portable:** File SQLite bisa langsung digunakan oleh Metabase tanpa konfigurasi kompleks.
+
+2️⃣ Jalankan Metabase via Docker
+3️⃣ Tambah database SQLite sebagai data source di Metabase
+**Cukup upload file[Database Predicted Resign](Dashboard/predicted_resign.db)., lalu Metabase bisa langsung membaca isi tabel dan membuat dashboard-nya.**
+
+
 
 _Dashboard dapat diakses melalui Metabase lokal: predicted_resign.db (Username : Tsamarah Abdullah, Pass : Tsamarah192) atau melihat dalam bentuk image_.
 
