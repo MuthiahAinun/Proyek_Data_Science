@@ -92,7 +92,7 @@ Hasil akhir disimpan ke file predictions.csv.
 
 1️⃣ Konversi File ke Database SQLite
 
-Sebelum digunakan di **Metabase**, file hasil prediksi **[predictions.csv](Predict/predictions.csv)** dan file penting lainnya seperti **[top_10_feature_importance.csv](others/top_10_feature_importance.csv)** dikonversi menjadi database **SQLite (.db)**. Untuk melakukan konversi kedua file menjadi database SQLite, Anda dapat menjalankan kode nya pada file [convert.py](others/convert.py) atau Anda dapat langsung mengunduh file hasil konversi SQLite pada [Database Predicted Resign](Dashboard/predicted_resign.db).
+Sebelum digunakan di **Metabase**, file hasil prediksi **[predictions.csv](Predict/predictions.csv)** dan file **[top_10_feature_importance.csv](others/top_10_feature_importance.csv)** dikonversi menjadi database **SQLite (.db)**. Untuk melakukan konversi kedua file menjadi database SQLite, Anda dapat menjalankan kode nya pada file [convert.py](others/convert.py) atau Anda dapat langsung mengunduh file hasil konversi SQLite pada [Database Predicted Resign](Dashboard/predicted_resign.db).
 
 **🔍 Mengapa Menggunakan SQLite?**
 - **Kompatibilitas tinggi:** Metabase mendukung SQLite sebagai salah satu data source.
