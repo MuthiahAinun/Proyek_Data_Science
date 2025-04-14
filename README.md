@@ -20,7 +20,7 @@ Permasalahan yang ingin diselesaikan antara lain:
 
 ### Persiapan
 
-Sumber data: Dataset karyawan berisi informasi demografis, pekerjaan, status attrition, dll. yang tersimpan dalam file ![**employee_data.csv**](Dataset/employee_data.csv) atau unduh langsung dari [dicoding_dataset](https://github.com/dicodingacademy/dicoding_dataset/blob/main/employee/employee_data.csv).
+Sumber data: Dataset karyawan berisi informasi demografis, pekerjaan, status attrition, dll. yang tersimpan dalam file [**employee_data.csv**](Dataset/employee_data.csv) atau unduh langsung dari [dicoding_dataset](https://github.com/dicodingacademy/dicoding_dataset/blob/main/employee/employee_data.csv).
 
 Setup environment:
 
@@ -77,7 +77,7 @@ Data karyawan diproses menggunakan pipeline yang sama dengan saat pelatihan mode
 Hasil akhir disimpan ke file predictions.csv.
 ```
 
-## Business Dashboard
+## 🎯Business Dashboard
 
 **Dashboard disusun secara berurutan untuk memberikan narasi yang jelas:**
 
@@ -101,12 +101,33 @@ Sebelum digunakan di **Metabase**, file hasil prediksi **[predictions.csv](Predi
 - **Portable:** File SQLite bisa langsung digunakan oleh Metabase tanpa konfigurasi kompleks.
 
 2️⃣ Jalankan Metabase via Docker
+- Install Docker Dekstop di situs resmi [Docker](https://docs.docker.com/desktop/setup/install/windows-install/).
+- Jalankan Docker Terminal lalu buat folder **metabase-data**
+  `sh
+  mkdir ~/metabase-data`
+
 3️⃣ Tambah database SQLite sebagai data source di Metabase
-**Cukup upload file[Database Predicted Resign](Dashboard/predicted_resign.db)., lalu Metabase bisa langsung membaca isi tabel dan membuat dashboard-nya.**
 
+**Cukup upload file [Database Predicted Resign](Dashboard/predicted_resign.db) pada Folder metabase-data, lalu Metabase bisa langsung membaca isi tabel dan membuat dashboard-nya.**
+'sh
+mv predicted_resign.db ~/metabase-data/'
 
+4️⃣ Menjalankan layanan Metabase menggunakan Docker Container dan menghubungkan folder lokal sebagai volume.
+'sh
+docker run -d -p 3000:3000 -v "C:\Users\ACER NITRO V15\metabase-data:/app/metabase-share" --name metabase metabase/metabase '
 
-_Dashboard dapat diakses melalui Metabase lokal: predicted_resign.db (Username : Tsamarah Abdullah, Pass : Tsamarah192) atau melihat dalam bentuk image_.
+**🔍 Penjelasan Kode:**
+
+1. ```docker run:``` perintah untuk menjalankan container baru.
+2. ```-d:``` menjalankan container di background (detached mode).
+3. ```-p 3000:3000:``` memetakan **port 3000** di komputer host ke port 3000 di dalam container (Metabase secara default berjalan di port 3000).
+4. ```-v "C:\Users\ACER_NITRO_V15\metabase-data:/app/metabase-share":```
+   Menghubungkan folder lokal **(C:\Users\...)** ke folder di dalam container **(/app/metabase-share)** agar dapat berbagi file, seperti database SQLite .db.
+5. ```--name metabase:``` memberi nama container sebagai metabase.
+6. ```metabase/metabase:``` image resmi Metabase dari Docker Hub.
+
+5️⃣ Akses database melalui browser **```http://localhost:3000/```** lalu buat akun admin, contoh (Username : Tsamarah Abdullah, Pass : Tsamarah192), Atau Anda dapat langsung mengakses ![gambar Dashboard Attrition](Dashboard/<muthiah_abdullah>-dashboard.jpg) dan Menonton video penjelasan mengenai [Dashboard Attrition](LINK VIDEO.txt).
+
 
 ## Conclusion
 
