@@ -105,19 +105,22 @@ Sebelum digunakan di **Metabase**, file hasil prediksi **[predictions.csv](Predi
 - Jalankan Docker Terminal lalu buat folder **metabase-data**:
   
   ```sh
-  mkdir ~/metabase-data```
+  mkdir ~/metabase-data
+  ```
 
 3️⃣ Tambah database SQLite sebagai data source di Metabase
 
-**Cukup upload file [Database Predicted Resign](Dashboard/predicted_resign.db) pada Folder metabase-data, lalu Metabase bisa langsung membaca isi tabel dan membuat dashboard-nya.**
+**Cukup pindahkan file [Database Predicted Resign](Dashboard/predicted_resign.db) pada Folder metabase-data, lalu Metabase bisa langsung membaca isi tabel dan membuat dashboard-nya.**
 
+```sh
+mv predicted_resign.db ~/metabase-data/
 ```
-mv predicted_resign.db ~/metabase-data/```
 
 4️⃣ Menjalankan layanan Metabase menggunakan Docker Container dan menghubungkan folder lokal sebagai volume.
 
+```sh
+docker run -d -p 3000:3000 -v "C:\Users\ACER NITRO V15\metabase-data:/app/metabase-share" --name metabase metabase/metabase
 ```
-docker run -d -p 3000:3000 -v "C:\Users\ACER NITRO V15\metabase-data:/app/metabase-share" --name metabase metabase/metabase```
 
 **🔍 Penjelasan Kode:**
 
@@ -130,7 +133,7 @@ docker run -d -p 3000:3000 -v "C:\Users\ACER NITRO V15\metabase-data:/app/metaba
 5. ```--name metabase:``` memberi nama container sebagai metabase.
 6. ```metabase/metabase:``` image resmi Metabase dari Docker Hub.
 
-5️⃣ Akses database melalui browser **```http://localhost:3000/```** lalu buat akun admin, contoh (Username : Tsamarah Abdullah, Pass : Tsamarah192), Atau Anda dapat langsung mengakses Dashboard Attrition ![gambar Dashboard Attrition](Dashboard/<muthiah_abdullah>-dashboard.jpg) dan **Menonton video penjelasan** mengenai [Dashboard Attrition](https://drive.google.com/file/d/1VFefB3yNIc9WjwPRx2zU5EbrNWxRFPAs/view?usp=sharing).
+5️⃣ Akses metabase melalui browser **```http://localhost:3000/```** lalu buat akun admin, contoh (Username : Tsamarah Abdullah, Pass : Tsamarah192). Kemudian hubungkan file database yang telah tersimpan dalam folder lokal (C:\Users\ACER_NITRO_V15\metabase-data\predicted_resign.db) ke container `/app/metabase-share/predicted_resign.db` , Atau Anda dapat langsung mengakses **Dashboard Attrition** ![gambar Dashboard Attrition](Dashboard/<muthiah_abdullah>-dashboard.jpg) dan **Menonton video penjelasan** mengenai [Dashboard Attrition](https://drive.google.com/file/d/1VFefB3yNIc9WjwPRx2zU5EbrNWxRFPAs/view?usp=sharing).
 
 
 ## 📌Conclusion
